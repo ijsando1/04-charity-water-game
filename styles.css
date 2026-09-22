@@ -134,17 +134,10 @@ h2 span { color: var(--blue); }
 .game-waterline::before, .game-waterline span { content: ""; position: absolute; left: 0; width: 105%; height: 41px; border-bottom: 2px solid var(--ink-soft); border-radius: 50%; }
 .game-waterline::before { top: -23px; transform: rotate(-1deg); }
 .game-waterline span { top: -16px; border-color: var(--blue); opacity: .45; transform: rotate(1deg); }
-.drop { position: absolute; width: 25px; height: 35px; cursor: pointer; border: 1.5px solid var(--blue); border-radius: 55% 55% 60% 60%; background: rgba(143,199,196,.48); transform: rotate(8deg); transition: opacity .25s, transform .25s; }
+.drop { position: absolute; width: 25px; height: 35px; cursor: pointer; border: 1.5px solid var(--blue); border-radius: 55% 55% 60% 60%; background: rgba(143,199,196,.48); transform: rotate(8deg); transition: opacity .25s, transform .25s; touch-action: manipulation; }
 .drop::after { content: ""; position: absolute; top: 7px; left: 7px; width: 4px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.7); transform: rotate(-18deg); }
 .drop:hover { transform: scale(1.15) rotate(-5deg); }
 .drop.collected { opacity: 0; transform: translateY(75px) scale(.3); pointer-events: none; }
-.drop-one { top: 85px; left: 19%; animation: drift-one 4.2s ease-in-out infinite; }
-.drop-two { top: 150px; left: 46%; width: 21px; height: 30px; animation: drift-two 3.7s ease-in-out infinite; }
-.drop-three { top: 72px; right: 17%; width: 18px; height: 26px; animation: drift-one 4.8s .5s ease-in-out infinite; }
-.drop-four { top: 250px; left: 32%; width: 17px; height: 25px; animation: drift-two 4.4s .2s ease-in-out infinite; }
-.drop-five { top: 205px; right: 29%; width: 24px; height: 33px; animation: drift-one 3.9s .7s ease-in-out infinite; }
-@keyframes drift-one { 50% { transform: translate(19px, 24px) rotate(18deg); } }
-@keyframes drift-two { 50% { transform: translate(-16px, 30px) rotate(-17deg); } }
 .well { position: absolute; left: 50%; bottom: 85px; width: 205px; height: 104px; border: 2px solid var(--ink-soft); border-top: 0; border-radius: 0 0 45% 45%; transform: translateX(-50%); }
 .well::before, .well::after { content: ""; position: absolute; top: -15px; width: 2px; height: 67px; background: var(--ink-soft); }
 .well::before { left: 5px; transform: rotate(2deg); }.well::after { right: 5px; transform: rotate(-2deg); }
