@@ -56,7 +56,7 @@ function updateGame(now) {
   previousTime = now;
   remainingTime = Math.max(0, remainingTime - elapsed);
   timerDisplay.textContent = String(Math.ceil(remainingTime)).padStart(2, '0');
-  const fallSpeed = 16 + ((60 - remainingTime) * 0.14);
+  const fallSpeed = 24 + ((60 - remainingTime) * 0.2);
   const fieldHeight = rainField.clientHeight;
   const wellBounds = well.getBoundingClientRect();
   const fieldBounds = rainField.getBoundingClientRect();
