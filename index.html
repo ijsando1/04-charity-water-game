@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell" aria-label="Charity Water game">
+    <div class="paper-texture"></div>
+    <header class="masthead">
+      <div class="brand-mark" aria-hidden="true">
+        <span class="brand-drop">+</span>
+        <span>charity: water</span>
+      </div>
+      <div class="chapter">FIELD NOTE <span>01</span></div>
+    </header>
+
+    <section class="screen cover-screen" data-screen="cover">
+      <div class="waterline" aria-hidden="true"><span></span></div>
+      <div class="cover-copy">
+        <p class="eyebrow">A small game about a big resource</p>
+        <h1>Drop by<br><em>drop</em></h1>
+        <p class="intro">Every clean choice helps a community grow.</p>
+      </div>
+
+      <div class="community-sketch" aria-hidden="true">
+        <svg viewBox="0 0 340 180" role="presentation">
+          <path class="sketch-line" d="M74 116 C105 93 116 89 143 100 M196 101 C221 89 237 91 266 115" />
+          <circle class="sketch-line" cx="159" cy="120" r="29" />
+          <circle class="sketch-line" cx="111" cy="78" r="25" />
+          <circle class="sketch-line" cx="228" cy="76" r="25" />
+          <path class="sketch-line" d="M150 126 c6-8 14-8 19 0 M104 81 l0 0 M221 79 l0 0" />
+          <path class="sketch-line soft" d="M42 49 q8-16 16 0 M287 48 q8-16 16 0" />
+          <path class="sketch-line" d="M158 147 c-18 9-30 13-50 18 M165 148 c20 9 33 12 53 17" />
+        </svg>
+        <span class="annotation annotation-left">together</span>
+        <span class="annotation annotation-right">one well<br>at a time</span>
+      </div>
+
+      <div class="cover-actions">
+        <button class="primary-button" data-start>
+          <span>START</span>
+          <span class="button-arrow">↗</span>
+        </button>
+        <p class="microcopy">2 minutes · no wrong answers</p>
+      </div>
+      <div class="scribble scribble-one" aria-hidden="true"></div>
+      <div class="scribble scribble-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="screen objective-screen" data-screen="objective" hidden>
+      <div class="objective-topline">
+        <button class="back-button" data-back aria-label="Back to title">← <span>back</span></button>
+        <span class="step-label">YOUR MISSION</span>
+      </div>
+      <div class="objective-card">
+        <div class="torn-edge" aria-hidden="true"></div>
+        <p class="note-label">GAME OBJECTIVE</p>
+        <h2>Collect rain<br><span>before it</span><br>runs away.</h2>
+        <p class="objective-body">Guide the drops into a well before the dry ground drinks them up.</p>
+        <div class="note-rule"></div>
+        <div class="note-stats">
+          <span><strong>01</strong> well to fill</span>
+          <span><strong>60</strong> seconds</span>
+        </div>
+      </div>
+      <button class="continue-button" data-continue>I UNDERSTAND <span>→</span></button>
+      <p class="tip"><span>TIP</span> Keep an eye on the wind.</p>
+    </section>
+
+    <footer class="footer-mark">
+      <span>clean water</span>
+      <span class="footer-dots">• • •</span>
+      <span>for everyone</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
