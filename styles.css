@@ -124,6 +124,48 @@ h2 span { color: var(--blue); }
 .tip { margin-top: 34px; color: var(--ink-soft); font-family: Caveat, cursive; font-size: 18px; transform: rotate(-2deg); }
 .tip span { margin-right: 8px; font-family: "DM Sans", sans-serif; font-size: 9px; }
 
+.game-screen { padding-top: 58px; }
+.game-hud { display: flex; justify-content: space-between; align-items: flex-start; }
+.timer { display: grid; justify-items: center; color: var(--blue); font-family: Caveat, cursive; line-height: .7; transform: rotate(4deg); }
+.timer span { font-size: 62px; }
+.timer small { margin-top: 9px; color: var(--ink-soft); font-family: "DM Sans", sans-serif; font-size: 8px; letter-spacing: .25em; }
+.rain-field { position: relative; height: 545px; margin: 17px -10px 0; overflow: hidden; border: 1.5px solid var(--blue); border-top: 0; border-radius: 0 0 43% 7% / 0 0 3% 4%; background: rgba(255, 251, 240, .2); }
+.game-waterline { position: absolute; top: 0; left: -3%; right: -3%; height: 49px; overflow: hidden; }
+.game-waterline::before, .game-waterline span { content: ""; position: absolute; left: 0; width: 105%; height: 41px; border-bottom: 2px solid var(--ink-soft); border-radius: 50%; }
+.game-waterline::before { top: -23px; transform: rotate(-1deg); }
+.game-waterline span { top: -16px; border-color: var(--blue); opacity: .45; transform: rotate(1deg); }
+.drop { position: absolute; width: 25px; height: 35px; cursor: pointer; border: 1.5px solid var(--blue); border-radius: 55% 55% 60% 60%; background: rgba(143,199,196,.48); transform: rotate(8deg); transition: opacity .25s, transform .25s; }
+.drop::after { content: ""; position: absolute; top: 7px; left: 7px; width: 4px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.7); transform: rotate(-18deg); }
+.drop:hover { transform: scale(1.15) rotate(-5deg); }
+.drop.collected { opacity: 0; transform: translateY(75px) scale(.3); pointer-events: none; }
+.drop-one { top: 85px; left: 19%; animation: drift-one 4.2s ease-in-out infinite; }
+.drop-two { top: 150px; left: 46%; width: 21px; height: 30px; animation: drift-two 3.7s ease-in-out infinite; }
+.drop-three { top: 72px; right: 17%; width: 18px; height: 26px; animation: drift-one 4.8s .5s ease-in-out infinite; }
+.drop-four { top: 250px; left: 32%; width: 17px; height: 25px; animation: drift-two 4.4s .2s ease-in-out infinite; }
+.drop-five { top: 205px; right: 29%; width: 24px; height: 33px; animation: drift-one 3.9s .7s ease-in-out infinite; }
+@keyframes drift-one { 50% { transform: translate(19px, 24px) rotate(18deg); } }
+@keyframes drift-two { 50% { transform: translate(-16px, 30px) rotate(-17deg); } }
+.well { position: absolute; left: 50%; bottom: 85px; width: 205px; height: 104px; border: 2px solid var(--ink-soft); border-top: 0; border-radius: 0 0 45% 45%; transform: translateX(-50%); }
+.well::before, .well::after { content: ""; position: absolute; top: -15px; width: 2px; height: 67px; background: var(--ink-soft); }
+.well::before { left: 5px; transform: rotate(2deg); }.well::after { right: 5px; transform: rotate(-2deg); }
+.well-rim { position: absolute; top: -20px; left: -9px; width: 221px; height: 52px; border: 2px solid var(--ink-soft); border-radius: 50%; background: var(--paper); }
+.well-water { position: absolute; z-index: 1; top: -3px; left: 9px; width: 183px; height: 37px; border: 1.5px solid var(--blue); border-radius: 50%; background: rgba(143,199,196,.52); }
+.well span { position: absolute; z-index: 2; bottom: -27px; left: 50%; color: var(--ink-soft); font-family: Caveat, cursive; font-size: 18px; transform: translateX(-50%) rotate(-4deg); }
+.wind-line { position: absolute; width: 88px; border-top: 1px solid var(--blue); opacity: .45; }
+.wind-line-one { top: 290px; left: 7%; transform: rotate(-8deg); }.wind-line-two { top: 330px; right: 4%; transform: rotate(6deg); }
+.game-prompt { position: absolute; bottom: 16px; left: 50%; margin: 0; text-align: center; color: var(--ink-soft); font-family: Caveat, cursive; font-size: 20px; line-height: .9; transform: translateX(-50%) rotate(-2deg); }
+.game-prompt span { color: var(--blue); font-size: 15px; }
+.finish-button { display: block; margin: 27px auto 0; border: 0; border-bottom: 1px solid var(--ink); padding: 6px 4px; background: transparent; color: var(--ink); cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: .16em; }
+.finish-button span { margin-left: 15px; color: var(--blue); font-size: 18px; }
+
+.score-screen { display: flex; flex-direction: column; align-items: center; padding-top: 95px; }
+.score-card { position: relative; width: min(100%, 455px); padding: 51px 53px 55px; border: 1.5px solid var(--blue); background: rgba(255, 251, 240, .5); transform: rotate(1.5deg); }
+.score-card::before { content: ""; position: absolute; inset: 10px -10px -11px 11px; border: 1px solid rgba(47,124,145,.42); z-index: -1; }
+.score-card .note-label { margin-bottom: 23px; }.score-card h2 { font-size: clamp(60px, 10vw, 83px); }
+.score-number { display: flex; align-items: end; gap: 15px; margin: 35px 0 24px; }.score-number strong { color: var(--blue); font-family: Caveat, cursive; font-size: 96px; line-height: .65; font-weight: 600; }.score-number span { color: var(--ink-soft); font-size: 11px; line-height: 1.25; text-transform: uppercase; letter-spacing: .15em; }
+.score-line { height: 1px; background: rgba(47,124,145,.35); }.score-message { margin: 22px 0 0; color: var(--ink-soft); font-family: Caveat, cursive; font-size: 24px; line-height: .9; transform: rotate(-2deg); }
+.score-screen .continue-button { margin-top: 48px; }
+
 .footer-mark { position: absolute; bottom: 30px; left: 54px; right: 54px; display: flex; align-items: center; justify-content: space-between; color: var(--ink-soft); font-size: 9px; letter-spacing: .16em; text-transform: uppercase; }
 .footer-dots { color: var(--blue); letter-spacing: .4em; }
 
@@ -138,6 +180,11 @@ h2 span { color: var(--blue); }
   .scribble-two { right: -8%; }
   .objective-screen { padding-top: 38px; }
   .objective-card { margin-top: 54px; padding: 42px 31px 38px; }
+  .game-screen { padding-top: 38px; }
+  .rain-field { height: 52vh; min-height: 430px; }
+  .well { bottom: 65px; }
+  .score-screen { padding-top: 70px; }
+  .score-card { padding: 42px 31px 48px; }
   .footer-mark { left: 26px; right: 26px; bottom: 23px; }
   .footer-dots { letter-spacing: .15em; }
 }

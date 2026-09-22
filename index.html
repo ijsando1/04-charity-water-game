@@ -73,6 +73,41 @@
       <p class="tip"><span>TIP</span> Keep an eye on the wind.</p>
     </section>
 
+    <section class="screen game-screen" data-screen="game" hidden>
+      <div class="game-hud">
+        <button class="back-button" data-game-back aria-label="Back to objective">← <span>pause</span></button>
+        <div class="timer" aria-label="60 seconds remaining"><span data-timer>60</span><small>SEC</small></div>
+      </div>
+      <div class="rain-field" data-rain-field>
+        <div class="game-waterline" aria-hidden="true"><span></span></div>
+        <div class="drop drop-one" data-drop aria-hidden="true"></div>
+        <div class="drop drop-two" data-drop aria-hidden="true"></div>
+        <div class="drop drop-three" data-drop aria-hidden="true"></div>
+        <div class="drop drop-four" data-drop aria-hidden="true"></div>
+        <div class="drop drop-five" data-drop aria-hidden="true"></div>
+        <div class="well" data-well>
+          <div class="well-rim"></div>
+          <div class="well-water"></div>
+          <span>well</span>
+        </div>
+        <div class="wind-line wind-line-one" aria-hidden="true"></div>
+        <div class="wind-line wind-line-two" aria-hidden="true"></div>
+        <p class="game-prompt">tap the drops<br><span>guide them home</span></p>
+      </div>
+      <button class="finish-button" data-finish>FINISH <span>→</span></button>
+    </section>
+
+    <section class="screen score-screen" data-screen="score" hidden>
+      <div class="score-card">
+        <p class="note-label">YOUR DAY IN THE RAIN</p>
+        <h2>Final<br><span>score!</span></h2>
+        <div class="score-number"><strong data-score>04</strong><span>drops<br>collected</span></div>
+        <div class="score-line"></div>
+        <p class="score-message">Every drop makes<br>a difference.</p>
+      </div>
+      <button class="continue-button" data-replay>PLAY AGAIN <span>↗</span></button>
+    </section>
+
     <footer class="footer-mark">
       <span>clean water</span>
       <span class="footer-dots">• • •</span>
