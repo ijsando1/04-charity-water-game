@@ -21,6 +21,7 @@ body {
 }
 
 button { font: inherit; }
+.screen[hidden] { display: none !important; }
 
 .game-shell {
   position: relative;

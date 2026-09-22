@@ -92,7 +92,8 @@ function showCover() {
 
 document.querySelector('[data-start]').addEventListener('click', showObjective);
 document.querySelector('[data-back]').addEventListener('click', showCover);
-document.querySelector('[data-continue]').addEventListener('click', () => {
+document.querySelector('[data-continue]').addEventListener('click', (event) => {
+  event.preventDefault();
   showScreen(game);
 });
 document.querySelector('[data-game-back]').addEventListener('click', showObjective);
