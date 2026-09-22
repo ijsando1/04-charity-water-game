@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drop by Drop | Responsive Wireframes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframes.css">
+</head>
+<body>
+  <main class="wireframe-page">
+    <header class="page-header">
+      <p class="kicker">CHARITY: WATER / PRODUCT NOTES</p>
+      <h1>Responsive wireframes</h1>
+      <p>One game, three physical contexts. The core action stays reachable while the drawing breathes differently at each size.</p>
+      <nav class="legend" aria-label="Wireframe legend">
+        <span><i class="ink-key"></i>content</span>
+        <span><i class="blue-key"></i>interaction</span>
+        <span><i class="sun-key"></i>primary action</span>
+      </nav>
+    </header>
+
+    <section class="viewport-grid" aria-label="Responsive viewport comparisons">
+      <article class="viewport-column desktop-column">
+        <header class="viewport-header"><span class="device-label">DESKTOP</span><strong>760 × 900</strong><span class="viewport-note">full composition</span></header>
+        <div class="screen-list">
+          <div class="wire-screen cover-wire"><span class="wire-brand">charity: water</span><div class="wire-wave"></div><div class="wire-title">Drop by<br><em>drop</em></div><div class="wire-community">○ ○<br><span>○</span></div><div class="wire-action">START ↗</div><small>title, illustration, and action share one centered column</small></div>
+          <div class="wire-screen objective-wire"><span class="wire-back">← back</span><span class="wire-step">YOUR MISSION</span><div class="wire-note"><small>GAME OBJECTIVE</small><b>Collect rain<br><em>before it</em><br>runs away.</b><p>objective text stays comfortably readable</p><hr><span>01 well to fill &nbsp;&nbsp; 60 seconds</span></div><div class="wire-action">I UNDERSTAND →</div></div>
+          <div class="wire-screen game-wire"><span class="wire-back">← pause</span><span class="wire-timer">60<br><small>SEC</small></span><div class="wire-board"><i class="wire-drop d-a"></i><i class="wire-drop d-b"></i><i class="wire-drop d-c"></i><div class="wire-well">well</div><small>large horizontal field gives the well room to track the pointer</small></div><div class="wire-text-action">FINISH →</div></div>
+          <div class="wire-screen score-wire"><div class="wire-score-card"><small>YOUR DAY IN THE RAIN</small><b>Final<br><em>score!</em></b><strong>04</strong><span>drops collected</span><hr><p>Every drop makes<br>a difference.</p></div><div class="wire-action">PLAY AGAIN ↗</div></div>
+        </div>
+        <p class="column-impact"><b>Gameplay impact</b> Pointer movement is most forgiving here. The well can remain wide and the drops can travel farther before reaching it.</p>
+      </article>
+
+      <article class="viewport-column tablet-column">
+        <header class="viewport-header"><span class="device-label">TABLET</span><strong>600 × 900</strong><span class="viewport-note">compressed breathing room</span></header>
+        <div class="screen-list">
+          <div class="wire-screen cover-wire"><span class="wire-brand">charity: water</span><div class="wire-wave"></div><div class="wire-title">Drop by<br><em>drop</em></div><div class="wire-community">○ ○<br><span>○</span></div><div class="wire-action">START ↗</div><small>illustration scales before type does</small></div>
+          <div class="wire-screen objective-wire"><span class="wire-back">← back</span><span class="wire-step">YOUR MISSION</span><div class="wire-note"><small>GAME OBJECTIVE</small><b>Collect rain<br><em>before it</em><br>runs away.</b><p>card padding tightens</p><hr><span>01 well to fill &nbsp;&nbsp; 60 seconds</span></div><div class="wire-action">I UNDERSTAND →</div></div>
+          <div class="wire-screen game-wire"><span class="wire-back">← pause</span><span class="wire-timer">60<br><small>SEC</small></span><div class="wire-board"><i class="wire-drop d-a"></i><i class="wire-drop d-b"></i><div class="wire-well">well</div><small>the well remains centered until the pointer or touch moves it</small></div><div class="wire-text-action">FINISH →</div></div>
+          <div class="wire-screen score-wire"><div class="wire-score-card"><small>YOUR DAY IN THE RAIN</small><b>Final<br><em>score!</em></b><strong>04</strong><span>drops collected</span><hr><p>Every drop makes<br>a difference.</p></div><div class="wire-action">PLAY AGAIN ↗</div></div>
+        </div>
+        <p class="column-impact"><b>Gameplay impact</b> The board narrows, so horizontal well movement needs a clear edge limit. Cards lose padding before they lose hierarchy.</p>
+      </article>
+
+      <article class="viewport-column mobile-column">
+        <header class="viewport-header"><span class="device-label">MOBILE</span><strong>390 × 844</strong><span class="viewport-note">thumb-first play</span></header>
+        <div class="screen-list">
+          <div class="wire-screen cover-wire"><span class="wire-brand">charity: water</span><div class="wire-wave"></div><div class="wire-title">Drop by<br><em>drop</em></div><div class="wire-community">○ ○<br><span>○</span></div><div class="wire-action">START ↗</div><small>title stays centered; side scribbles move out of the way</small></div>
+          <div class="wire-screen objective-wire"><span class="wire-back">← back</span><span class="wire-step">YOUR MISSION</span><div class="wire-note"><small>GAME OBJECTIVE</small><b>Collect rain<br><em>before it</em><br>runs away.</b><p>one-column card with safe touch margins</p><hr><span>01 well &nbsp;&nbsp; 60 sec</span></div><div class="wire-action">I UNDERSTAND →</div></div>
+          <div class="wire-screen game-wire"><span class="wire-back">← pause</span><span class="wire-timer">60<br><small>SEC</small></span><div class="wire-board"><i class="wire-drop d-a"></i><i class="wire-drop d-b"></i><div class="wire-well">well</div><small>touch anywhere in the board to slide the well</small></div><div class="wire-text-action">FINISH →</div></div>
+          <div class="wire-screen score-wire"><div class="wire-score-card"><small>YOUR DAY IN THE RAIN</small><b>Final<br><em>score!</em></b><strong>04</strong><span>drops collected</span><hr><p>Every drop makes<br>a difference.</p></div><div class="wire-action">PLAY AGAIN ↗</div></div>
+        </div>
+        <p class="column-impact"><b>Gameplay impact</b> The field becomes taller than it is wide. Touch movement replaces hover, and all controls keep a minimum thumb-friendly target.</p>
+      </article>
+    </section>
+
+    <footer class="design-rules">
+      <span>01 / Preserve the centered well</span>
+      <span>02 / Keep drops visible against paper</span>
+      <span>03 / Never let the timer overlap play</span>
+    </footer>
+  </main>
+</body>
+</html>
