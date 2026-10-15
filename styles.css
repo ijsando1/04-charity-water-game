@@ -127,6 +127,9 @@ h2 span { color: var(--blue); }
 
 .game-screen { padding-top: 58px; }
 .game-hud { display: flex; justify-content: space-between; align-items: flex-start; }
+.game-score { display: grid; justify-items: center; color: var(--blue); font-family: Caveat, cursive; line-height: .8; transform: rotate(-2deg); }
+.game-score span { font-size: 42px; }
+.game-score small { margin-top: 8px; color: var(--ink-soft); font-family: "DM Sans", sans-serif; font-size: 8px; letter-spacing: .2em; }
 .timer { display: grid; justify-items: center; color: var(--blue); font-family: Caveat, cursive; line-height: .7; transform: rotate(4deg); }
 .timer span { font-size: 62px; }
 .timer small { margin-top: 9px; color: var(--ink-soft); font-family: "DM Sans", sans-serif; font-size: 8px; letter-spacing: .25em; }
@@ -141,12 +144,12 @@ h2 span { color: var(--blue); }
 .drop.dirty::after { background: rgba(255,244,216,.55); }
 .drop:hover { transform: scale(1.15) rotate(-5deg); }
 .drop.collected { opacity: 0; transform: translateY(75px) scale(.3); pointer-events: none; }
-.well { position: absolute; left: 50%; bottom: 85px; width: 205px; height: 104px; border: 2px solid var(--ink-soft); border-top: 0; border-radius: 0 0 45% 45%; transform: translateX(-50%); }
-.well::before, .well::after { content: ""; position: absolute; top: -15px; width: 2px; height: 67px; background: var(--ink-soft); }
-.well::before { left: 5px; transform: rotate(2deg); }.well::after { right: 5px; transform: rotate(-2deg); }
-.well-rim { position: absolute; top: -20px; left: -9px; width: 221px; height: 52px; border: 2px solid var(--ink-soft); border-radius: 50%; background: var(--paper); }
-.well-water { position: absolute; z-index: 1; top: -3px; left: 9px; width: 183px; height: 37px; border: 1.5px solid var(--blue); border-radius: 50%; background: rgba(143,199,196,.52); }
-.well span { position: absolute; z-index: 2; bottom: -27px; left: 50%; color: var(--ink-soft); font-family: Caveat, cursive; font-size: 18px; transform: translateX(-50%) rotate(-4deg); }
+.well { position: absolute; left: 50%; bottom: 85px; width: 150px; height: 78px; border: 2px solid var(--ink-soft); border-top: 0; border-radius: 0 0 45% 45%; transform: translateX(-50%); }
+.well::before, .well::after { content: ""; position: absolute; top: -11px; width: 2px; height: 50px; background: var(--ink-soft); }
+.well::before { left: 4px; transform: rotate(2deg); }.well::after { right: 4px; transform: rotate(-2deg); }
+.well-rim { position: absolute; top: -15px; left: -8px; width: 162px; height: 38px; border: 2px solid var(--ink-soft); border-radius: 50%; background: var(--paper); }
+.well-water { position: absolute; z-index: 1; top: -2px; left: 8px; width: 130px; height: 27px; border: 1.5px solid var(--blue); border-radius: 50%; background: rgba(143,199,196,.52); }
+.well span { position: absolute; z-index: 2; bottom: -24px; left: 50%; color: var(--ink-soft); font-family: Caveat, cursive; font-size: 16px; transform: translateX(-50%) rotate(-4deg); }
 .wind-line { position: absolute; width: 88px; border-top: 1px solid var(--blue); opacity: .45; }
 .wind-line-one { top: 290px; left: 7%; transform: rotate(-8deg); }.wind-line-two { top: 330px; right: 4%; transform: rotate(6deg); }
 .game-prompt { position: absolute; bottom: 16px; left: 50%; margin: 0; text-align: center; color: var(--ink-soft); font-family: Caveat, cursive; font-size: 20px; line-height: .9; transform: translateX(-50%) rotate(-2deg); }

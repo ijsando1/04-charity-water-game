@@ -6,6 +6,7 @@ const screens = [cover, objective, game, score];
 const rainField = document.querySelector('[data-rain-field]');
 const well = document.querySelector('[data-well]');
 const timerDisplay = document.querySelector('[data-timer]');
+const gameScoreDisplay = document.querySelector('[data-game-score]');
 const scoreDisplay = document.querySelector('[data-score]');
 const resultMessage = document.querySelector('[data-result-message]');
 const confettiLayer = document.querySelector('[data-confetti]');
@@ -35,7 +36,7 @@ function startGame() {
   scorePoints = 0;
   previousTime = performance.now();
   timerDisplay.textContent = remainingTime;
-  scoreDisplay.textContent = '00';
+  updateScoreDisplay();
   well.style.left = '50%';
   drops.forEach((drop, index) => resetDrop(drop, index));
   animationFrame = requestAnimationFrame(updateGame);
@@ -43,6 +44,12 @@ function startGame() {
 
 function updateResultMessage() {
   resultMessage.textContent = scorePoints >= confettiScoreThreshold ? 'Congrats!' : 'Try again';
+}
+
+function updateScoreDisplay() {
+  const displayedScore = String(scorePoints).padStart(2, '0');
+  gameScoreDisplay.textContent = displayedScore;
+  scoreDisplay.textContent = displayedScore;
 }
 
 function updateConfetti() {
@@ -81,7 +88,7 @@ function collectDrop(drop) {
   if (drop.classList.contains('collected')) return;
   if (drop.classList.contains('dirty')) scorePoints = Math.max(0, scorePoints - 1);
   else scorePoints += 1;
-  scoreDisplay.textContent = String(scorePoints).padStart(2, '0');
+  updateScoreDisplay();
   resetDrop(drop, Math.floor(Math.random() * drops.length));
 }
 
