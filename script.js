@@ -86,10 +86,11 @@ function resetDrop(drop, index) {
 
 function collectDrop(drop) {
   if (drop.classList.contains('collected')) return;
+  drop.classList.add('collected');
   if (drop.classList.contains('dirty')) scorePoints = Math.max(0, scorePoints - 1);
   else scorePoints += 1;
   updateScoreDisplay();
-  resetDrop(drop, Math.floor(Math.random() * drops.length));
+  window.setTimeout(() => resetDrop(drop, Math.floor(Math.random() * drops.length)), 250);
 }
 
 function updateGame(now) {
@@ -144,4 +145,7 @@ document.querySelector('[data-replay]').addEventListener('click', () => showScre
 rainField.addEventListener('pointermove', (event) => moveWell(event.clientX));
 rainField.addEventListener('pointerdown', (event) => moveWell(event.clientX));
 
-drops.forEach((drop) => drop.addEventListener('click', () => collectDrop(drop)));
+drops.forEach((drop) => drop.addEventListener('pointerdown', (event) => {
+  event.stopPropagation();
+  collectDrop(drop);
+}));
