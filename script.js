@@ -7,9 +7,13 @@ const rainField = document.querySelector('[data-rain-field]');
 const well = document.querySelector('[data-well]');
 const timerDisplay = document.querySelector('[data-timer]');
 const scoreDisplay = document.querySelector('[data-score]');
+const resultMessage = document.querySelector('[data-result-message]');
+const confettiLayer = document.querySelector('[data-confetti]');
 const drops = [...document.querySelectorAll('[data-drop]')];
-let remainingTime = 60;
-let collectedDrops = 0;
+const gameDuration = 30;
+const confettiScoreThreshold = 20;
+let remainingTime = gameDuration;
+let scorePoints = 0;
 let animationFrame;
 let previousTime;
 
@@ -17,18 +21,47 @@ function showScreen(screen) {
   screens.forEach((item) => { item.hidden = item !== screen; });
   if (screen === game) startGame();
   else stopGame();
+  if (screen === score) {
+    updateResultMessage();
+    updateConfetti();
+  }
 }
 
 function startGame() {
   cancelAnimationFrame(animationFrame);
-  remainingTime = 60;
-  collectedDrops = 0;
+  confettiLayer.replaceChildren();
+  resultMessage.textContent = '';
+  remainingTime = gameDuration;
+  scorePoints = 0;
   previousTime = performance.now();
   timerDisplay.textContent = remainingTime;
   scoreDisplay.textContent = '00';
   well.style.left = '50%';
   drops.forEach((drop, index) => resetDrop(drop, index));
   animationFrame = requestAnimationFrame(updateGame);
+}
+
+function updateResultMessage() {
+  resultMessage.textContent = scorePoints >= confettiScoreThreshold ? 'Congrats!' : 'Try again';
+}
+
+function updateConfetti() {
+  confettiLayer.replaceChildren();
+  if (scorePoints <= confettiScoreThreshold) return;
+
+  const colors = ['#2f7c91', '#edb45d', '#8fc7c4', '#d87850', '#172d36'];
+  const pieces = Array.from({ length: 40 }, (_, index) => {
+    const piece = document.createElement('span');
+    piece.className = 'confetti-piece';
+    piece.style.setProperty('--confetti-x', `${(index * 37) % 100}%`);
+    piece.style.setProperty('--confetti-delay', `${(index % 8) * 0.08}s`);
+    piece.style.setProperty('--confetti-duration', `${2.4 + (index % 6) * 0.2}s`);
+    piece.style.setProperty('--confetti-drift', `${((index * 17) % 120) - 60}px`);
+    piece.style.setProperty('--confetti-spin', `${360 + ((index * 53) % 540)}deg`);
+    piece.style.setProperty('--confetti-color', colors[index % colors.length]);
+    return piece;
+  });
+  confettiLayer.append(...pieces);
 }
 
 function stopGame() {
@@ -46,8 +79,9 @@ function resetDrop(drop, index) {
 
 function collectDrop(drop) {
   if (drop.classList.contains('collected')) return;
-  collectedDrops += 1;
-  scoreDisplay.textContent = String(collectedDrops).padStart(2, '0');
+  if (drop.classList.contains('dirty')) scorePoints = Math.max(0, scorePoints - 1);
+  else scorePoints += 1;
+  scoreDisplay.textContent = String(scorePoints).padStart(2, '0');
   resetDrop(drop, Math.floor(Math.random() * drops.length));
 }
 
@@ -56,7 +90,7 @@ function updateGame(now) {
   previousTime = now;
   remainingTime = Math.max(0, remainingTime - elapsed);
   timerDisplay.textContent = String(Math.ceil(remainingTime)).padStart(2, '0');
-  const fallSpeed = 24 + ((60 - remainingTime) * 0.2);
+  const fallSpeed = 24 + ((gameDuration - remainingTime) * 0.2);
   const fieldHeight = rainField.clientHeight;
   const wellBounds = well.getBoundingClientRect();
   const fieldBounds = rainField.getBoundingClientRect();
@@ -67,7 +101,8 @@ function updateGame(now) {
     drop.style.top = `${y}px`;
     const dropBounds = drop.getBoundingClientRect();
     const insideWell = dropBounds.bottom >= wellBounds.top && dropBounds.left < wellBounds.right && dropBounds.right > wellBounds.left;
-    if (insideWell || y > fieldHeight - 20) collectDrop(drop);
+    if (insideWell) collectDrop(drop);
+    else if (y > fieldHeight - 20) resetDrop(drop, Math.floor(Math.random() * drops.length));
   });
 
   if (remainingTime > 0) animationFrame = requestAnimationFrame(updateGame);

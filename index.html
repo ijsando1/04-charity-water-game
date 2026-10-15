@@ -62,11 +62,11 @@
         <div class="torn-edge" aria-hidden="true"></div>
         <p class="note-label">GAME OBJECTIVE</p>
         <h2>Collect rain<br><span>before it</span><br>runs away.</h2>
-        <p class="objective-body">Guide the drops into a well before the dry ground drinks them up.</p>
+        <p class="objective-body">Guide clean drops into the well and avoid muddy drops—they subtract a point.</p>
         <div class="note-rule"></div>
         <div class="note-stats">
           <span><strong>01</strong> well to fill</span>
-          <span><strong>60</strong> seconds</span>
+          <span><strong>30</strong> seconds</span>
         </div>
       </div>
       <button type="button" class="continue-button" data-continue>I UNDERSTAND <span>→</span></button>
@@ -76,14 +76,14 @@
     <section class="screen game-screen" data-screen="game" hidden>
       <div class="game-hud">
         <button class="back-button" data-game-back aria-label="Back to objective">← <span>pause</span></button>
-        <div class="timer" aria-label="60 seconds remaining"><span data-timer>60</span><small>SEC</small></div>
+        <div class="timer" aria-label="30 seconds remaining"><span data-timer>30</span><small>SEC</small></div>
       </div>
       <div class="rain-field" data-rain-field>
         <div class="game-waterline" aria-hidden="true"><span></span></div>
         <div class="drop drop-one" data-drop aria-hidden="true"></div>
-        <div class="drop drop-two" data-drop aria-hidden="true"></div>
+        <div class="drop drop-two dirty" data-drop aria-hidden="true"></div>
         <div class="drop drop-three" data-drop aria-hidden="true"></div>
-        <div class="drop drop-four" data-drop aria-hidden="true"></div>
+        <div class="drop drop-four dirty" data-drop aria-hidden="true"></div>
         <div class="drop drop-five" data-drop aria-hidden="true"></div>
         <div class="well" data-well>
           <div class="well-rim"></div>
@@ -98,10 +98,12 @@
     </section>
 
     <section class="screen score-screen" data-screen="score" hidden>
+      <div class="confetti-layer" data-confetti aria-hidden="true"></div>
       <div class="score-card">
         <p class="note-label">YOUR DAY IN THE RAIN</p>
         <h2>Final<br><span>score!</span></h2>
-        <div class="score-number"><strong data-score>04</strong><span>drops<br>collected</span></div>
+        <div class="score-number"><strong data-score>00</strong><span>points</span></div>
+        <p class="result-message" data-result-message aria-live="polite"></p>
         <div class="score-line"></div>
         <p class="score-message">Every drop makes<br>a difference.</p>
       </div>
